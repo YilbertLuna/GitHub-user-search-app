@@ -82,7 +82,7 @@ export default function InputSearch({setUser}: props): JSX.Element {
                     </span>
                 </p>
             </div>
-            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-whit shadow-inputShadow rounded-lg dark:bg-darkUser">
+            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-white shadow-inputShadow rounded-lg dark:bg-darkUser">
                 <form onSubmit={e => {
                     e.preventDefault()
                     submitInputValue()
