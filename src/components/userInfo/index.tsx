@@ -18,7 +18,7 @@ export default function UserInformation({user}: props): JSX.Element {
                 </div>
                 <div className="flex flex-col justify-center items-start">
                     <h1 className="text-xl font-bold ">{user?.name}</h1>
-                    <p>@{user?.login}</p>
+                    <a href={user?.html_url}>@{user?.login}</a>
                     <p>{dateCreated(user?.created_at)}</p>
                 </div>
             </div>
