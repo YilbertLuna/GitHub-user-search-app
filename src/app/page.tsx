@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { userInfo } from "../interfaces/interfaces";
 import InputSearch from "../components/inputSearch";
+import UserInformation from "../components/userInfo";
 
 export default function Home() {
 
@@ -18,13 +19,7 @@ export default function Home() {
       <InputSearch setUser={setUserData}/>
       
       {/* user Info */}
-      <div className="mt-20">
-        <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl font-bold ">{user?.name}</h1>
-            <p className="">{user?.bio}</p>
-        </div>
-      </div>
-
+      {user && <UserInformation user={user}/>}
     </div>
   );
 }
