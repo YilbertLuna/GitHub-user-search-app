@@ -1,6 +1,7 @@
 import { userInfo } from "../../interfaces/interfaces"
 import Image from "next/image"
 import { FaLocationDot, FaLink, FaSquareTwitter, FaBuilding  } from "react-icons/fa6";
+import { dateCreated } from "../../utils/date";
 
 type props = {
     user: userInfo | null
@@ -18,8 +19,7 @@ export default function UserInformation({user}: props): JSX.Element {
                 <div className="flex flex-col justify-center items-start">
                     <h1 className="text-xl font-bold ">{user?.name}</h1>
                     <p>@{user?.login}</p>
-                    {/* <p>{user?.created_at}</p> */}
-                    <p>joined 25 jan 2011</p>
+                    <p>{dateCreated(user?.created_at)}</p>
                 </div>
             </div>
 
