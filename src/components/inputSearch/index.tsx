@@ -69,7 +69,7 @@ export default function InputSearch({setUser}: props): JSX.Element {
 
     return(
         <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-row justify-between w-full mt-32 dark:text-white">
+            <div className="flex flex-row justify-between w-full mt-11 dark:text-white">
                 <h1>DEVFINDER</h1>
                 <p className="flex flex-row justify-center items-center gap-1">
                     <span onClick={toggleTheme} className={`${theme === 'light' ? '' : 'hidden'} flex flex-row items-center`}>
