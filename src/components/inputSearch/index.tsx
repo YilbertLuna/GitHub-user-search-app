@@ -8,7 +8,7 @@ type props = {
     setUser: (user: userInfo | null) => void;
 }
 
-export default function InputSearch({setUser}: props) {
+export default function InputSearch({setUser}: props): JSX.Element {
 
     const [notfound, setNotfound] = useState<boolean>(false)
     const [empiti, setEmpiti] = useState<boolean>(false)
@@ -26,25 +26,24 @@ export default function InputSearch({setUser}: props) {
     }
 
     // effect to change the user when the input value is changed
-    useEffect(() => {
 
+    useEffect(()=> {
         async function getDataUser() {
-        const response = await fetch(`https://api.github.com/users/${inputValue}`);
-        const data = await response.json();
-    
-        if (response.status !== 200) {
-            setNotfound(true);
-            setUser(null);
-            return;
+            const response = await fetch(`https://api.github.com/users/${inputValue}`);
+            const data = await response.json();
+        
+            if (response.status != 200) {
+              setNotfound(true);
+              setUser(null);
+              return;
+            }
+        
+            setNotfound(false);
+            setUser(data);
         }
-    
-        setNotfound(false);
-        setUser(data);
-        }
-
         getDataUser()
-
-    }, [inputValue, setUser])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[inputValue])
     
 
     return(
@@ -67,7 +66,6 @@ export default function InputSearch({setUser}: props) {
                     <CiSearch className="text-3xl"/>
                 
                     <input ref={userNameRef} type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black focus:outline-none w-40 bg-white"/>
-                    {/* <input type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black focus:outline-none w-40 bg-white"/> */}
 
                     {empiti && <p className="text-red-500 text-xs">Enter User</p>}
                     {notfound && <p className="text-red-500 text-xs">Not Fount</p>}
