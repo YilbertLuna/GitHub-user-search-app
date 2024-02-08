@@ -14,7 +14,28 @@ export default function InputSearch({setUser}: props): JSX.Element {
     const [empiti, setEmpiti] = useState<boolean>(false)
     const userNameRef = useRef<HTMLInputElement>(null)
     const [inputValue, setInputValue] = useState<string>('octocat')
+    const [theme, setTheme] = useState<string>('light');
 
+
+    //funtion to handle button theme
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    useEffect(() => {
+        const localTheme = localStorage.getItem('theme')
+        if(localTheme) setTheme(localTheme);
+    }, [])
+
+    useEffect(() => {
+        document.querySelector('html')?.classList.remove('light', 'dark')
+        document.querySelector('html')?.classList.add(theme)
+    }, [theme])
+
+
+    // function to change input
     function submitInputValue() {
         if(userNameRef.current?.value.trim() === "" || userNameRef.current?.value === undefined){
           setEmpiti(true)
@@ -48,24 +69,27 @@ export default function InputSearch({setUser}: props): JSX.Element {
 
     return(
         <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-row justify-between w-full mt-32">
+            <div className="flex flex-row justify-between w-full mt-32 dark:text-white">
                 <h1>DEVFINDER</h1>
                 <p className="flex flex-row justify-center items-center gap-1">
-                    <span>
-                    dark
+                    <span onClick={toggleTheme} className={`${theme === 'light' ? '' : 'hidden'} flex flex-row items-center`}>
+                        dark
+                        <MdDarkMode  className="text-xl text-gray-500"/>
                     </span>
-                    <MdDarkMode  className="text-xl text-gray-500"/>
-                    {/* <MdLightMode className="text-xl text-gray-500"/> */}
+                    <span onClick={toggleTheme} className={`${theme === 'light' ? 'hidden' : ''} flex flex-row items-center`}>
+                        light
+                        <MdLightMode className="text-xl text-gray-500"/>
+                    </span>
                 </p>
             </div>
-            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-white shadow-inputShadow rounded-lg">
+            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-whit shadow-inputShadow rounded-lg dark:bg-darkUser">
                 <form onSubmit={e => {
                     e.preventDefault()
                     submitInputValue()
                 }} className="flex flex-row justify-center items-center gap-2">
-                    <CiSearch className="text-3xl"/>
+                    <CiSearch className="text-3xl dark:text-white"/>
                 
-                    <input ref={userNameRef} type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black focus:outline-none w-40 bg-white"/>
+                    <input ref={userNameRef} type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black dark:placeholder-white dark:text-white focus:outline-none w-40 bg-white dark:bg-darkUser"/>
 
                     {empiti && <p className="text-red-500 text-xs">Enter User</p>}
                     {notfound && <p className="text-red-500 text-xs">Not Fount</p>}

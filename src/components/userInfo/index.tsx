@@ -9,7 +9,7 @@ type props = {
 export default function UserInformation({user}: props): JSX.Element {
     
     return(
-        <div className="mt-11 w-80 p-4 bg-white shadow-inputShadow rounded-lg space-y-3">
+        <div className="mt-11 w-80 p-4 bg-white dark:bg-darkUser dark:text-white shadow-inputShadow rounded-lg space-y-3">
             {/* photo, name, username and count created */}
             <div className="flex flex-row justify-center items-center space-x-5">
                 <div className="flex justify-start items-start">
@@ -29,7 +29,7 @@ export default function UserInformation({user}: props): JSX.Element {
             </div>
 
             {/* repos, followers and followings */}
-            <div className=" flex flex-row justify-between items-center p-3 rounded-lg bg-lightInfoUser">
+            <div className=" flex flex-row justify-between items-center p-3 rounded-lg bg-lightInfoUser dark:bg-darkUserInfo">
                 <p className="flex flex-col text-center">
                     <span>Repos</span>
                     <span>{user?.public_repos}</span>
