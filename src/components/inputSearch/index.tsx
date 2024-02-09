@@ -86,7 +86,7 @@ export default function InputSearch({setUser}: props): JSX.Element {
                 <form onSubmit={e => {
                     e.preventDefault()
                     submitInputValue()
-                }} className="flex flex-row justify-center items-center gap-9 md:gap-11 desktop:gap-40">
+                }} className="flex flex-row justify-center items-center gap-2 md:gap-4 desktop:gap-10">
                     <div className="flex flex-row justify-center items-center gap-3">
                         <CiSearch className="text-3xl dark:text-button"/>
                     
@@ -94,7 +94,7 @@ export default function InputSearch({setUser}: props): JSX.Element {
                     </div>
 
                     {empiti && <p className="text-red-500 text-xs">Enter User</p>}
-                    {notfound && <p className="text-red-500 text-xs">Not Fount</p>}
+                    {notfound && <p className="text-red-500 text-xs">Not Fount</p>} 
 
                     <button type="submit" className="bg-button text-white p-2 rounded-lg text-base">search</button>
                 </form>
