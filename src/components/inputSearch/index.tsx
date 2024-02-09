@@ -68,8 +68,8 @@ export default function InputSearch({setUser}: props): JSX.Element {
     
 
     return(
-        <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-row justify-between w-full mt-11 dark:text-white">
+        <div className="flex flex-col justify-center items-center md:w-3/4 desktop:max-w-2xl">
+            <div className="flex flex-row justify-between w-full dark:text-white">
                 <h1>DEVFINDER</h1>
                 <p className="flex flex-row justify-center items-center gap-1">
                     <span onClick={toggleTheme} className={`${theme === 'light' ? '' : 'hidden'} flex flex-row items-center`}>
@@ -82,14 +82,16 @@ export default function InputSearch({setUser}: props): JSX.Element {
                     </span>
                 </p>
             </div>
-            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-white shadow-inputShadow rounded-lg dark:bg-darkUser">
+            <div className="flex justify-center items-center mt-5 w-80 p-5 bg-white shadow-inputShadow rounded-lg dark:bg-darkUser md:w-full">
                 <form onSubmit={e => {
                     e.preventDefault()
                     submitInputValue()
-                }} className="flex flex-row justify-center items-center gap-2">
-                    <CiSearch className="text-3xl dark:text-white"/>
-                
-                    <input ref={userNameRef} type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black dark:placeholder-white dark:text-white focus:outline-none w-40 bg-white dark:bg-darkUser"/>
+                }} className="flex flex-row justify-center items-center gap-9 md:gap-11 desktop:gap-40">
+                    <div className="flex flex-row justify-center items-center gap-3">
+                        <CiSearch className="text-3xl dark:text-button"/>
+                    
+                        <input ref={userNameRef} type="text" name="username" id="username" placeholder="search github username..." className="placeholder-black w-36 dark:placeholder-white dark:text-white focus:outline-none text-sm bg-white dark:bg-darkUser md:w-96 md:text-lg"/>
+                    </div>
 
                     {empiti && <p className="text-red-500 text-xs">Enter User</p>}
                     {notfound && <p className="text-red-500 text-xs">Not Fount</p>}
