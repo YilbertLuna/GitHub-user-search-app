@@ -19,6 +19,9 @@ const config: Config = {
         'darkUserInfo': '#141d2f',
         'button': '#0079ff'
       },
+      fontFamily: {
+        'WorkSans': ['Work Sans', 'sans-serif']
+      },
       boxShadow: {
         'inputShadow': '0 35px 60px -15px rgba(70, 69, 187, 0.2)'
       },

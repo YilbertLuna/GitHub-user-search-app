@@ -68,17 +68,17 @@ export default function InputSearch({setUser}: props): JSX.Element {
     
 
     return(
-        <div className="flex flex-col justify-center items-center md:w-3/4 desktop:max-w-2xl">
+        <div className="flex flex-col justify-center items-center md:w-3/4 desktop:max-w-2xl font-WorkSans">
             <div className="flex flex-row justify-between w-full dark:text-white">
-                <h1>DEVFINDER</h1>
+                <h1 className="text-lg font-semibold">DEVFINDER</h1>
                 <p className="flex flex-row justify-center items-center gap-1">
-                    <span onClick={toggleTheme} className={`${theme === 'light' ? '' : 'hidden'} flex flex-row items-center`}>
+                    <span onClick={toggleTheme} className={`${theme === 'light' ? '' : 'hidden'} flex flex-row items-center gap-1 text-lg`}>
                         dark
-                        <MdDarkMode  className="text-xl text-gray-500"/>
+                        <MdDarkMode  className="text-xl text-darkBg"/>
                     </span>
-                    <span onClick={toggleTheme} className={`${theme === 'light' ? 'hidden' : ''} flex flex-row items-center`}>
+                    <span onClick={toggleTheme} className={`${theme === 'light' ? 'hidden' : ''} flex flex-row items-center gap-1 text-lg`}>
                         light
-                        <MdLightMode className="text-xl text-gray-500"/>
+                        <MdLightMode className="text-xl text-white"/>
                     </span>
                 </p>
             </div>
@@ -96,7 +96,7 @@ export default function InputSearch({setUser}: props): JSX.Element {
                     {empiti && <p className="text-red-500 text-xs">Enter User</p>}
                     {notfound && <p className="text-red-500 text-xs">Not Fount</p>}
 
-                    <button type="submit" className="bg-button text-white p-2 rounded-lg">search</button>
+                    <button type="submit" className="bg-button text-white p-2 rounded-lg text-base">search</button>
                 </form>
             </div>
       </div>

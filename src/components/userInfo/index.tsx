@@ -10,7 +10,7 @@ type props = {
 export default function UserInformation({user}: props): JSX.Element {
     
     return(
-        <div className="mt-8 w-80 p-4 bg-white dark:bg-darkUser dark:text-white shadow-inputShadow rounded-lg space-y-3 md:space-y-3 md:w-3/4 desktop:max-w-2xl">
+        <div className="mt-8 w-80 p-4 bg-white dark:bg-darkUser dark:text-white shadow-inputShadow rounded-lg space-y-3 md:space-y-3 md:w-3/4 desktop:max-w-2xl font-WorkSans">
             {/* photo, name, username and count created */}
             <div className="flex flex-row justify-center items-center space-x-5 mt-2 md:justify-center md:ml-4">
                 <div className="flex justify-center items-center">
@@ -49,19 +49,19 @@ export default function UserInformation({user}: props): JSX.Element {
             {/* informarion user */}
             <div className="flex flex-col justify-start items-start space-y-3 md:grid md:grid-cols-2 md:justify-center md:items-center desktop:ml-28">
                 <p className="flex flex-row md:justify-start md:items-center md:ml-4">
-                    <span className={`${user?.location ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6`}><FaLocationDot />{user?.location ? user?.location : 'Not Available'}</span>
+                    <span className={`${user?.location ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6 text-sm`}><FaLocationDot />{user?.location ? user?.location : 'Not Available'}</span>
                 </p>
 
                 <p className="flex flex-row md:justify-start md:items-center md:ml-4">
-                    <a href={user?.blog} className={`${user?.blog ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6`}><FaLink/>{user?.blog ? user?.blog : 'Not Available'}</a>
+                    <a href={user?.blog} className={`${user?.blog ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6 text-sm`}><FaLink/>{user?.blog ? user?.blog : 'Not Available'}</a>
                 </p>
 
                 <p className="flex flex-row md:justify-start md:items-center md:ml-4">
-                    <span className={`${user?.twitter_username ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6`}><FaSquareTwitter/>{user?.twitter_username ? user?.twitter_username : 'Not Available'}</span>
+                    <span className={`${user?.twitter_username ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6 text-sm`}><FaSquareTwitter/>{user?.twitter_username ? user?.twitter_username : 'Not Available'}</span>
                 </p>
 
                 <p className="flex flex-row md:justify-start md:items-center md:ml-4">
-                    <span className={`${user?.company ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6`}><FaBuilding />{user?.company ? user?.company : 'Not Available'}</span>
+                    <span className={`${user?.company ? '' : 'text-gray-400'} flex flex-row justify-center items-center text-center gap-6 text-sm`}><FaBuilding />{user?.company ? user?.company : 'Not Available'}</span>
                 </p>
             </div>
 
