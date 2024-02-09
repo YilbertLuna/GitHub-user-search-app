@@ -23,7 +23,7 @@ const config: Config = {
         'inputShadow': '0 35px 60px -15px rgba(70, 69, 187, 0.2)'
       },
       screens:{
-        'desktop': '1360px',
+        'desktop': '900px',
       }
     },
   },
